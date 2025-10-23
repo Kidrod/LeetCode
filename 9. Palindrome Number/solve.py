@@ -1,0 +1,42 @@
+# Given an integer x, return true if x is a palindrome, and false otherwise.
+
+# Example 1:
+
+# Input: x = 121
+# Output: true
+# Explanation: 121 reads as 121 from left to right and from right to left.
+# Example 2:
+
+# Input: x = -121
+# Output: false
+# Explanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.
+# Example 3:
+
+# Input: x = 10
+# Output: false
+# Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
+
+
+class Solution(object):
+    def isPalindrome(self, x):
+        # Check if x is negative, return false
+        if x < 0:
+            return False
+        # Declare reverve_num to store the reversed number of x and temp to hold the original value of x
+        reverse_num = 0
+        temp = x
+        # Loop exists until go through all numbers in x
+        while x != 0:
+            # Each loop, put the last number in x to reversed number
+            digit = x % 10
+            reverse_num = reverse_num * 10 + digit
+            x //= 10
+        # Return true if reversed number equal to orignial x
+        return reverse_num == temp
+    
+    
+
+
+solution = Solution()
+x = 121
+print(solution.isPalindrome(x))
