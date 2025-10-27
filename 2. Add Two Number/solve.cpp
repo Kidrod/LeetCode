@@ -5,11 +5,8 @@ struct ListNode {
     // A node contains 2 parameters, one is value of itself, one is the pointer to next node
     int val;
     ListNode *next;
-    // List node empty
     ListNode() : val(0), next(nullptr) {}
-    // List node has 1 node only
     ListNode(int x) : val(x), next(nullptr) {}
-    // List node has multiple nodes
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
