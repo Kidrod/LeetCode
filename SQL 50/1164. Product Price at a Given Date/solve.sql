@@ -41,3 +41,18 @@ Output:
 | 1          | 35    |
 | 3          | 10    |
 +------------+-------+
+
+select P.product_id, P.new_price as price
+from Products P 
+JOIN (
+select product_id, MAX(change_date) as change_date 
+from Products
+where change_date <= '2019-08-16'
+group by product_id
+) latest
+ON P.product_id = latest.product_id and P.change_date = latest.change_date
+UNION
+select product_id, 10 as price
+from Products
+group by product_id
+having MIN(change_date) > '2019-08-16'
