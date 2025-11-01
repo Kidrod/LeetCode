@@ -23,7 +23,7 @@
 -- Return a table with the following columns: product_id, first_year, quantity, and price.
 -- Return the result in any order.
 
- 
+
 
 -- Example 1:
 
@@ -44,3 +44,9 @@
 -- | 100        | 2008       | 10       | 5000  |
 -- | 200        | 2011       | 15       | 9000  |
 -- +------------+------------+----------+-------+
+
+select s1.product_id, s1.year as first_year, s1.quantity, s1.price 
+from Sales s1 
+LEFT JOIN Sales s2 
+on s1.product_id = s2.product_id and s1.year > s2.year 
+where s2.year is null
