@@ -67,6 +67,7 @@ class Solution{
         }
 
         // Way 3: Hash map-based solution
+        // Time compexity: O(n)
         int singleNumberway3(std::vector<int>& nums){
             std::unordered_map<int, int> map_frequency;
             // Count the frequency of appearance then store to hash map
